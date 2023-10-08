@@ -107,30 +107,29 @@ export const getLuYangTuoMaIndex = (heavenlyStemName: HeavenlyStemName, earthlyB
 
   const heavenlyStem = kot<HeavenlyStemKey>(heavenlyStemName);
   const earthlyBranch = kot<EarthlyBranchKey>(earthlyBranchName, 'Earthly');
-  // console.log('ten tieng viet',heavenlyStemName, earthlyBranchName , heavenlyStem,earthlyBranch  )
+
   switch (earthlyBranch) {
     case 'yinEarthly':
     case 'wuEarthly':
     case 'xuEarthly':
-      maIndex = fixEarthlyBranchIndex('shen');  
+      maIndex = fixEarthlyBranchIndex('shen');
       break;
     case 'shenEarthly':
     case 'ziEarthly':
     case 'chenEarthly':
-      maIndex = fixEarthlyBranchIndex('yin');   
+      maIndex = fixEarthlyBranchIndex('yin');
       break;
     case 'siEarthly':
     case 'youEarthly':
     case 'chouEarthly':
-      maIndex = fixEarthlyBranchIndex('hai');   
+      maIndex = fixEarthlyBranchIndex('hai');
       break;
     case 'haiEarthly':
     case 'maoEarthly':
     case 'weiEarthly':
-      maIndex = fixEarthlyBranchIndex('si');  
+      maIndex = fixEarthlyBranchIndex('si');
       break;
   }
-  // console.log('Tim maIndex',heavenlyStemName, earthlyBranchName , heavenlyStem,earthlyBranch , maIndex)
 
   switch (heavenlyStem) {
     case 'jiaHeavenly': {
@@ -168,10 +167,6 @@ export const getLuYangTuoMaIndex = (heavenlyStemName: HeavenlyStemName, earthlyB
       break;
     }
   }
-  console.log('Full index ==> ', heavenlyStemName, earthlyBranchName, luIndex,
-  maIndex,
-   fixIndex(luIndex + 1),
-   fixIndex(luIndex - 1))
 
   return {
     luIndex,

@@ -1,7 +1,5 @@
 <div align="center">
 
-# 📦 IZTRO
-
 ![banner2](https://github.com/SylarLong/iztro/assets/6510425/e8457a88-e52e-435e-8f93-e3f375486d70)
 
 A lightweight astrolabe generator of The Purple Star Astrology(Zi Wei Dou Shu).
@@ -38,19 +36,49 @@ A lightweight astrolabe generator of The Purple Star Astrology(Zi Wei Dou Shu).
 
 It's used to obtain the data of `The Purple Star Astrology (Zi Wei Dou Shu)`.
 
-Feature list
+- Input
 
-- To obtain the astrology data by birthday (`Solar calendar` or `Lunar calendar`) and birth time (`Chinese hour`).
-  - basic information(`birthday`, `Chinese hour`, `sign`, `Chinese zodiac`, `body lord`, `soul lord` etc.)
-  - palace information(`name`, `heavenly stem` and `earthly branch`, `stars` etc.)
-  - star information(`brightness`, `mutagen` and `type`)
-  - horoscope information(`decadal`, `nominal age`, `yearly`, `monthly`, `daily`, `hourly`)
-  - mutagen
-- get `mutagen` by `heavenly stem`
-- get `surrounded palaces` by palace `index` or `name`
-- check whether specific `stars` in a specific `palace`
-- check whether specific `stars` in `surrounded palaces`
-- multilingual input/output results
+  - birthday（support solar date and lunar date）
+  - birth time
+  - gender
+
+- Feature list
+
+  - get `12 palaces` data of Zi Wei Dou Shu.
+  - get Chinese `zodiac`
+  - get `sign`
+  - get birth time by Chinese date
+  - get `horoscope`(`decadal`, `turnly`, `yearly`, `monthly`, `daily`, `timely`)
+  - get horoscope `stars` (`dacadal` and `yearly`)
+  - check if one `palace` includes specific `stars`
+  - check if `surrounded palaces` of specific `palace` include specific `stars`
+  - check if `surrounded palaces` of specific `palace` include specific `mutagen`
+  - check if spedific star is `mutaged`
+  - check if `surrounded palaces` of specific `star` include specific `mutagen`
+  - check star `brightness`
+  - get `mutagen` by `heavenly stem`
+  - get `palace` by `star`
+  - get `surrounded palaces` by `palace`
+  - get `surrounded palaces` by `star`
+  - get `opposite` palace by `star`
+
+- Other
+
+  - multilingual input/output
+
+    you can mix multiple languages when passing parameters and specify output language. we support Simplified Chinese, Traditional Chinese, English, Japanese, Korean and Vietnamese. however, English translation is not stardand. so I just translate them by meaning. if you're good at English and well known about Zi Wei Dou Shu, welcome to PR. any language is welcome.
+
+  - chain invoking
+
+    if you want to check if the `surrounded palaces` of  `emperor` is `focused`, you can do it like this:
+
+    ```ts
+    import { astro } from 'iztro';
+
+    const astrolabe = astro.astrolabeBySolarDate('2000-8-16', 2, 'male', true, 'en-US');
+
+    astrolabe.star('emperor').surroundedPalaces().haveMutagen('focused');
+    ```
 
 ### Quick link
 
@@ -123,7 +151,7 @@ If you're interested in `iztro` and wish to join us,it's very welcome. You can c
 
 You can generate an astrolabe by using the returned data. Of course it's just an example. You can focus on astrolabe design or data analyzation. This program solves the most tedious work for you, so that you can put more energy on the things you need to pay attention to.
 
-![demo](https://github.com/SylarLong/iztro/assets/6510425/d2108ed7-6794-418a-b0e5-872c71ba6e1d)
+<img width="966" alt="image" src="https://github.com/SylarLong/react-iztro/assets/6510425/f4335997-fdd8-42e2-bb1a-600942f9b0ba">
 
 ### Star History
 

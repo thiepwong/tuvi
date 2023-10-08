@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { EARTHLY_BRANCHES, HEAVENLY_STEMS, RAT_RULE } from '../data';
 import { HeavenlyStemAndEarthlyBranch, HeavenlyStemAndEarthlyBranchDate } from '../data/types';
 import { HeavenlyStemKey, HeavenlyStemName, kot, t } from '../i18n';
@@ -101,7 +102,7 @@ export const getHeavenlyStemAndEarthlyBranchByLunarDate = (
 ): HeavenlyStemAndEarthlyBranchDate => {
   const [lunarYear] = normalizeLunarDateStr(dateStr);
   const solar = lunar2solar(dateStr, isLeap);
-  const solarDate = new Date(solar.toString());
+  const solarDate = new Date(dayjs(solar.toString()).format());
 
   const yearly = heavenlyStemAndEarthlyBranchOfYear(lunarYear);
   const monthly = heavenlyStemAndEarthlyBranchOfMonth(solarDate);
@@ -114,12 +115,11 @@ export const getHeavenlyStemAndEarthlyBranchByLunarDate = (
     daily,
     hourly,
     toString() {
-      if(yearly[0].length>1) {
+      if (yearly[0].length > 1) {
         return `${yearly.join(' ')} - ${monthly.join(' ')} - ${daily.join(' ')} - ${hourly.join(' ')}`;
       } else {
         return `${yearly.join('')} ${monthly.join('')} ${daily.join('')} ${hourly.join('')}`;
       }
-     
     },
   };
 };
@@ -132,29 +132,10 @@ export const getHeavenlyStemAndEarthlyBranchByLunarDate = (
  * @returns HeavenlyStemAndEarthlyBranchResult
  */
 export const getHeavenlyStemAndEarthlyBranchBySolarDate = (
-  dateStr: string,
+  dateStr: string | Date,
   timeIndex: number,
 ): HeavenlyStemAndEarthlyBranchDate => {
-  const solarDate = new Date(dateStr);
-  const { lunarYear } = solar2lunar(dateStr);
+  const lunarDate = solar2lunar(dateStr);
 
-  const yearly = heavenlyStemAndEarthlyBranchOfYear(lunarYear);
-  const monthly = heavenlyStemAndEarthlyBranchOfMonth(solarDate);
-  const daily = heavenlyStemAndEarthlyBranchOfDay(solarDate, timeIndex);
-  const hourly = heavenlyStemAndEarthlyBranchOfTime(timeIndex, daily[0]);
-
-  return {
-    yearly,
-    monthly,
-    daily,
-    hourly,
-    toString() {
-      // return `${yearly.join('')} ${monthly.join('')} ${daily.join('')} ${hourly.join('')}`;
-      if(yearly[0].length>1) {
-        return `${yearly.join(' ')} - ${monthly.join(' ')} - ${daily.join(' ')} - ${hourly.join(' ')}`;
-      } else {
-        return `${yearly.join('')} ${monthly.join('')} ${daily.join('')} ${hourly.join('')}`;
-      }
-    },
-  };
+  return getHeavenlyStemAndEarthlyBranchByLunarDate(lunarDate.toString(), timeIndex, lunarDate.isLeap);
 };

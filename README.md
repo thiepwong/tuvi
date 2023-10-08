@@ -68,7 +68,7 @@
 
   - 多语言输入/输出
 
-    输入的时候支持多个国家和地区语言混合输入，可以输出指定语言。目前支持 简体中文，繁体中文，英文，日文，韩文。英文的翻译目前还没有标准，所以我大多是意译的，但也正因为如此，可能英文版本的会更加易懂。如果有精通星象翻译的欢迎提 PR 。任何语言都可以。
+    输入的时候支持多个国家和地区语言混合输入，可以输出指定语言。目前支持 简体中文，繁体中文，英文，日文，韩文，越南语。英文的翻译目前还没有标准，所以我大多是意译的，但也正因为如此，可能英文版本的会更加易懂。如果有精通星象翻译的欢迎提 PR 。任何语言都可以。
 
   - 链式调用
 
@@ -146,14 +146,14 @@
 - 如果你发现程序有BUG，请到[这里](https://github.com/SylarLong/iztro/issues/new?assignees=SylarLong&labels=%E6%BC%8F%E6%B4%9E%EF%BD%9Cbug&projects=&template=bug-report.md&title=%7Bversion%7D%3A%7Bfunction%7D-)创建一个`BUG报告`。
 - 你也可以将本仓库`fork`到你自己的仓库进行编辑，然后提交PR到本仓库。
 - 假如你擅长外语，我们也欢迎你对国际化文件的翻译做出你的贡献，你可以`fork`本仓库，然后在[locales](https://github.com/SylarLong/iztro/tree/main/src/i18n/locales)文件夹下创建一个国际化语言文件，然后复制其他语言文件目录里面的文件到你的目录下进行更改。
-- 当然，如果在我挑灯码字的时候能的到你赞助的咖啡，在下也是不胜感激 [![Static Badge](https://img.shields.io/badge/PaypalMe-8A2BE2?logo=paypal&link=https%3A%2F%2Fwww.paypal.com%2Fsylarlong)
+- 当然，如果你觉得本程序对你有用，请给我买杯咖啡☕️ [![Static Badge](https://img.shields.io/badge/PaypalMe-8A2BE2?logo=paypal&link=https%3A%2F%2Fwww.paypal.com%2Fsylarlong)
   ](https://PayPal.Me/sylarlong)
 
 ### 总结
 
 使用本程序返回的数据，你可以生成这样一张星盘，当然这只是一个例子，你可以把注意力集中在星盘的设计上，也可以把重心放在数据的分析上，本程序为你解决了最繁冗的工作，让你可以把精力更多的放在你所需要关注的事情上面。
 
-![demo](https://github.com/SylarLong/iztro/assets/6510425/d2108ed7-6794-418a-b0e5-872c71ba6e1d)
+<img width="966" alt="image" src="https://github.com/SylarLong/react-iztro/assets/6510425/f4335997-fdd8-42e2-bb1a-600942f9b0ba">
 
 ### Star趋势
 
